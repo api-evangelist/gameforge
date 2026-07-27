@@ -1,0 +1,31 @@
+# Gameforge
+
+> Gameforge AG is a German publisher of free-to-play online and browser games (OGame, Ikariam, Metin2, AION, NosTale, and others), headquartered in Karlsruhe, Germany. Its flagship title OGame exposes a public read-only game-data API (highscores, players, alliances, universe, and server metadata) as XML/JSON feeds per game server, plus a separate access-controlled API for approved third-party tools.
+
+## APIs
+
+- [OGame Public API](https://forum.origin.ogame.gameforge.com/forum/thread/44-ogame-api/): Read-only public game-data feeds per OGame server — highscore, players, alliances, universe, serverData, localization. XML by default; append `?toJson=1` for JSON. Base pattern `https://s<server>-<community>.ogame.gameforge.com/api/`.
+
+## Endpoints (OGame Public API, per server)
+
+- `GET /api/serverData.xml` — server properties (name, language, speed, timezone)
+- `GET /api/players.xml` — all players on the server (refresh ~1 day)
+- `GET /api/alliances.xml` — all alliances and their members (refresh ~1 day)
+- `GET /api/universe.xml` — all planets, coordinates, owners (refresh ~1 week)
+- `GET /api/highscore.xml?category={1|2}&type={0-7}` — player/alliance rankings (refresh ~1 hour)
+- `GET /api/localization.xml` — tech IDs and translations
+- `GET /api/xsd/serverData.xsd` — published XSD schemas for the feeds
+
+## Security
+
+- [security.txt](https://gameforge.com/.well-known/security.txt): RFC 9116 disclosure contacts
+- [Vulnerability Disclosure Program](https://security.gameforge.com/en): scope `*.gameforge.com, *.gameforge.de, *.gfsrv.net`
+- [Bugcrowd VDP](https://bugcrowd.com/engagements/gameforge-vdp-ess): managed bug-bounty / disclosure engagement
+- Contact: security@gameforge.com
+
+## Docs & Support
+
+- [Support / Help Center](https://support.gameforge.com/)
+- [Corporate site](https://corporate.gameforge.com/)
+- [Terms (GTC)](https://agbserver.gameforge.com/enGB-Switch-GF-Portal.html)
+- [Privacy Policy](https://agbserver.gameforge.com/enGB-Privacy-GF-Portal.html)

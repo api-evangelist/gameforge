@@ -1,0 +1,31 @@
+generated: '2026-07-19'
+method: searched
+source: live probe of https://gameforge.com/.well-known/*
+host: https://gameforge.com
+documents:
+  - path: /.well-known/security.txt          # RFC 9116 — genuine (text/plain)
+    status: 200
+    content_type: text/plain
+    genuine: true
+    file: gameforge-security.txt
+  - path: /.well-known/openid-configuration   # returns 200 but text/html SPA fallback — not a real OIDC document
+    status: 200
+    content_type: text/html
+    genuine: false
+  - path: /.well-known/oauth-authorization-server  # 200 text/html SPA fallback — not a real RFC 8414 document
+    status: 200
+    content_type: text/html
+    genuine: false
+  - path: /.well-known/api-catalog            # 200 text/html SPA fallback — not a real RFC 9727 catalog
+    status: 200
+    content_type: text/html
+    genuine: false
+  - path: /.well-known/ai-plugin.json         # 200 text/html SPA fallback — not a real ai-plugin manifest
+    status: 200
+    content_type: text/html
+    genuine: false
+notes: >-
+  gameforge.com serves an HTML SPA for unknown paths, so every /.well-known/*
+  request returns HTTP 200. Only /.well-known/security.txt returns genuine
+  content (text/plain, RFC 9116); the OIDC/OAuth/api-catalog/ai-plugin responses
+  are the SPA fallback (text/html) and are recorded as genuine: false.

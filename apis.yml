@@ -1,7 +1,17 @@
 aid: gameforge
 name: Gameforge
-description: 'Gameforge is a company surfaced as a portfolio company of accel and added to the API Evangelist
-  network as a stub for enrichment. Sector: consumer. This profile is a lead awaiting the enrichment pipeline.'
+description: >-
+  Gameforge AG is a German publisher of free-to-play online and browser games,
+  headquartered in Karlsruhe, Germany. Its catalog includes long-running titles
+  such as OGame, Ikariam, Metin2, AION, NosTale, and other strategy and MMO games
+  played across dozens of localized game servers. Gameforge's flagship title OGame
+  exposes a public read-only game-data API that returns highscores, player and
+  alliance rosters, universe/planet layouts, and per-server metadata as XML feeds
+  (with an opt-in JSON representation), plus a separate access-controlled API that
+  approved third-party tool developers can request for combat and report data.
+  Gameforge also runs a coordinated vulnerability disclosure program through
+  Bugcrowd. This profile was surfaced as a portfolio company of Accel and enriched
+  by the API Evangelist pipeline.
 url: https://raw.githubusercontent.com/api-evangelist/gameforge/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,18 +19,81 @@ x-backed-by:
 - accel
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
+image: https://gameforge.com/.resources/portal/images/logos/gameforge-logo.svg
 tags:
 - Company
 - Consumer
-apis: []
+- Gaming
+- Games
+- Online Games
+- Browser Games
+- Free-to-Play
+- Publisher
+- Entertainment
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: OGame Public API
+  description: >-
+    Read-only public game-data feeds for OGame, served per game server. Returns
+    highscore rankings, player and alliance rosters, universe/planet layouts,
+    localization tables, and server metadata as XML (append ?toJson=1 for JSON).
+    A separate access-controlled API, gated by an issued api_key, is available to
+    approved third-party tool developers for combat and report data.
+  humanURL: https://forum.origin.ogame.gameforge.com/forum/thread/44-ogame-api/
+  baseURL: https://s1-en.ogame.gameforge.com/api/
+  tags:
+  - Games
+  - Gaming
+  - Statistics
+  - XML
+  properties:
+  - type: APIReference
+    url: https://forum.origin.ogame.gameforge.com/forum/thread/44-ogame-api/
 common:
 - type: Website
   url: https://gameforge.com/en-US/
+- type: DeveloperPortal
+  url: https://corporate.gameforge.com/
+- type: Support
+  url: https://support.gameforge.com/
+- type: TermsOfService
+  url: https://agbserver.gameforge.com/enGB-Switch-GF-Portal.html
+- type: PrivacyPolicy
+  url: https://agbserver.gameforge.com/enGB-Privacy-GF-Portal.html
+- type: SignUp
+  url: https://gameforge.com/en-US/
+- type: WellKnown
+  url: well-known/gameforge-well-known.yml
+- type: SecurityTxt
+  url: well-known/gameforge-security.txt
+- type: LLMsTxt
+  url: llms/gameforge-llms.txt
+- type: DomainSecurity
+  url: security/gameforge-domain-security.yml
+- type: VulnerabilityDisclosure
+  url: security/gameforge-vulnerability-disclosure.yml
+- type: Security
+  url: https://security.gameforge.com/en
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
